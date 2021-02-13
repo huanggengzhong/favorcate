@@ -1,12 +1,17 @@
 import 'package:favorcate/core/router/route.dart';
+import 'package:favorcate/ui/shared/size_fit.dart';
 import 'package:flutter/material.dart';
 import './ui/shared/app_theme.dart';
+import 'ui/shared/size_fit.dart';
 
 
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+    //  屏幕适配做一下初始化
+    HYSizeFit.initialize();
     return MaterialApp(
       title: "美食广场",
 //      主题
