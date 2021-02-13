@@ -27,17 +27,31 @@ class _HYHomeContentState extends State<HYHomeContent> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      padding: EdgeInsets.all(20.px),
       itemCount: _categories.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 20.px,
           mainAxisSpacing: 20.px,
           childAspectRatio: 1.5,
-
-
+          
         ),
         itemBuilder: (ctx,index){
-        return Text(_categories[index].title);
+        final bgColor=_categories[index].cColor;
+        return Container(
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(12),
+            gradient: LinearGradient(
+              colors: [
+                bgColor.withOpacity(.8),//渐变一半
+                bgColor
+              ]
+            )
+          ),
+            alignment: Alignment.center,
+//            copyWith是加粗
+            child: Text(_categories[index].title,style: Theme.of(context).textTheme.display2.copyWith(fontWeight: FontWeight.bold),));
         });
   }
 }
