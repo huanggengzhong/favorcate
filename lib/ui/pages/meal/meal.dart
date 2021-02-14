@@ -1,5 +1,7 @@
-import 'package:favorcate/core/model/HYCategoryModel.dart';
 import 'package:flutter/material.dart';
+
+import 'package:favorcate/core/model/HYCategoryModel.dart';
+import 'package:favorcate/ui/pages/meal/meal_content.dart';
 class HYMealScreen extends StatelessWidget {
   static const String routeName="/meal";
   @override
@@ -10,7 +12,7 @@ class HYMealScreen extends StatelessWidget {
       appBar: AppBar(
         title:Text(category.title) ,
       ),
-      body: Center(child: Text(category.title),),
+      body: HYMealContent(),
     );
   }
 }
