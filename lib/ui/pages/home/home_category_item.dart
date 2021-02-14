@@ -1,5 +1,6 @@
 import 'package:favorcate/core/model/HYCategoryModel.dart';
 import 'package:flutter/material.dart';
+import 'package:favorcate/core/extension/int_extension.dart';
 class HYHomeCategoryItem extends StatelessWidget {
   final HYCategoryModel _category;
   HYHomeCategoryItem(this._category);
@@ -10,7 +11,7 @@ class HYHomeCategoryItem extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: bgColor,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.px),
             gradient: LinearGradient(
                 colors: [
                   bgColor.withOpacity(.8),//渐变一半

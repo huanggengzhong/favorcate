@@ -1,4 +1,4 @@
-//json解析
+//这里是json解析
 import 'dart:convert';
 import 'package:favorcate/core/model/HYCategoryModel.dart';
 import 'package:flutter/services.dart';
