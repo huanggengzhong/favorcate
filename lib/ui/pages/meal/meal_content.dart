@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:collection/collection.dart';
 
+import 'package:favorcate/ui/widgets/meal/meal_item.dart';
 import 'package:favorcate/core/viewmodel/meal_view_model.dart';
 import 'package:favorcate/core/model/HYCategoryModel.dart';
 
@@ -19,14 +20,14 @@ class HYMealContent extends StatelessWidget {
       selector: (ctx, mealVM) {
         return mealVM.meals.where((element) =>
             element.categories.contains(category.id)).toList();
-      },
+      },//这里过滤
       shouldRebuild: (pre, next) => !ListEquality().equals(pre, next),
       //ListEquality是判断两个列表是否相等
-      builder: (ctx, meals, child) {
+      builder: (ctx, meals, child) {//重新builder
         return ListView.builder(
             itemCount: meals.length,
             itemBuilder: (ctx, index) {
-              return ListTile(title: Text(meals[index].title));
+              return HYMealItem(meals[index]);
             }
         );
       },
