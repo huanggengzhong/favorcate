@@ -1,14 +1,14 @@
-
-import 'package:favorcate/core/service/meal_request.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'app.dart';
+import 'core/viewmodel/meal_view_model.dart';
 
 void main() {
-//  测试网络请求数据
-//HYMealRequest.getMealData();
-  runApp(MyApp());
+  runApp(
+//    Provider:ViewModel/Provider/Consumer(Selector)
+      ChangeNotifierProvider(
+//        共享的数据
+    create: (ctx) => MealViewModel(),
+    child: MyApp(),
+  ));
 }
-
-
-
-
