@@ -3,6 +3,8 @@ import 'package:favorcate/core/services/json_parse.dart';
 import 'package:flutter/material.dart';
 import 'package:favorcate/core/extension/int_extension.dart';
 
+import 'home_category_item.dart';
+
 
 class HYHomeContent extends StatefulWidget {
   @override
@@ -37,21 +39,8 @@ class _HYHomeContentState extends State<HYHomeContent> {
           
         ),
         itemBuilder: (ctx,index){
-        final bgColor=_categories[index].cColor;
-        return Container(
-          decoration: BoxDecoration(
-            color: bgColor,
-            borderRadius: BorderRadius.circular(12),
-            gradient: LinearGradient(
-              colors: [
-                bgColor.withOpacity(.8),//渐变一半
-                bgColor
-              ]
-            )
-          ),
-            alignment: Alignment.center,
-//            copyWith是加粗
-            child: Text(_categories[index].title,style: Theme.of(context).textTheme.display2.copyWith(fontWeight: FontWeight.bold),));
+        return HYHomeCategoryItem(_categories[index]);
         });
   }
 }
+
