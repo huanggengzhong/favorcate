@@ -1,3 +1,4 @@
+import 'package:favorcate/ui/pages/detail/detail.dart';
 import 'package:flutter/material.dart';
 
 import 'package:favorcate/core/extension/int_extension.dart';
@@ -14,15 +15,20 @@ class HYMealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.all(10.px),
-      elevation: 5,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.px)),
-      child: Column(
-        children: <Widget>[
-          buildBasicInfo(context),
-          buildOperationInfo()
-        ],
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).pushNamed(HYDetailScreen.routeName,arguments:_meal );
+      },
+      child: Card(
+        margin: EdgeInsets.all(10.px),
+        elevation: 5,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.px)),
+        child: Column(
+          children: <Widget>[
+            buildBasicInfo(context),
+            buildOperationInfo()
+          ],
+        ),
       ),
     );
   }
@@ -66,7 +72,7 @@ class HYMealItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           HYOperationItem(Icon(Icons.schedule),"${_meal.duration}分钟"),
-          HYOperationItem(Icon(Icons.restaurant),"${_meal.complexity}分钟"),
+          HYOperationItem(Icon(Icons.restaurant),"${_meal.complexStr}"),
           HYOperationItem(Icon(Icons.favorite),"未收藏"),
         ],
       ) ,

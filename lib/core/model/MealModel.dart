@@ -8,6 +8,9 @@ MealModel mealModelFromJson(String str) => MealModel.fromJson(json.decode(str));
 
 String mealModelToJson(MealModel data) => json.encode(data.toJson());
 
+//定义好常量
+List<String> complexs=["简单","中等","困难"];
+
 class MealModel {
   MealModel({
     this.id,
@@ -15,6 +18,7 @@ class MealModel {
     this.title,
     this.affordability,
     this.complexity,
+    this.complexStr,
     this.imageUrl,
     this.duration,
     this.ingredients,
@@ -26,6 +30,7 @@ class MealModel {
   });
 
   String id;
+  String complexStr;
   List<String> categories;
   String title;
   int affordability;
@@ -45,6 +50,7 @@ class MealModel {
     title: json["title"],
     affordability: json["affordability"],
     complexity: json["complexity"],
+    complexStr:complexs[json["complexity"]],
     imageUrl: json["imageUrl"],
     duration: json["duration"],
     ingredients: List<String>.from(json["ingredients"].map((x) => x)),
