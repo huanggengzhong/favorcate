@@ -16,7 +16,10 @@ class HYDetailContent extends StatelessWidget {
       child: Column(
         children: <Widget>[
           buildBannerImage(),
+          buildMakeTitle(context, "制作材料"),
           buildMakeMaterial(context),
+          buildMakeTitle(context, "制作步骤"),
+          buildMakeSteps(context),
         ],
       ),
     );
@@ -34,21 +37,59 @@ class HYDetailContent extends StatelessWidget {
 //    myLog("${_meal.ingredients}",StackTrace.current);
     return buildMakeContent(
         context: context,
-        child:Text("haha"));
-//        child: ListView.builder(
-//            itemCount: _meal.ingredients.length,
-//            itemBuilder: (ctx, index) {
-//              return Card(
-//                child: Padding(
-//                  child: Text("haha"),
-//                ),
-//              );
-//            }));
+        child: ListView.builder(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            //bool 是否在范围内进行包裹
+            physics: NeverScrollableScrollPhysics(),
+            //不需要滚动
+            itemCount: _meal.ingredients.length,
+            itemBuilder: (ctx, index) {
+              return Card(
+                color: Theme.of(context).accentColor,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  child: Text(_meal.ingredients[index]),
+                ),
+              );
+            }));
   }
 
 //  组件封装3.制作步骤
+  Widget buildMakeSteps(BuildContext context) {
+    return buildMakeContent(
+        context: context,
+//      separated是有下划线的ListView
+        child: ListView.separated(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (ctx, index) {
+              return ListTile(
+                leading: CircleAvatar(
+                  child: Text("#${index + 1}"),
+                ),
+                title: Text(_meal.steps[index]),
+              );
+            },
+            separatorBuilder: (ctx, index) {
+              return Divider();
+            },
+            itemCount: _meal.steps.length));
+  }
 
 //组件封装4.公共标题
+  Widget buildMakeTitle(BuildContext context, String title) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 12.px),
+      child: Text(
+        title,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
 //组件封装5.公共内容
   Widget buildMakeContent({BuildContext context, Widget child}) {
     return Container(

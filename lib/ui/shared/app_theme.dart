@@ -14,6 +14,7 @@ class HYAppTheme {
   //2.普通模式
   static final ThemeData norTheme = ThemeData(
       primarySwatch: Colors.pink,
+      accentColor:Colors.amber,//列表背景色
       canvasColor: Color.fromRGBO(255, 254, 222, 1), //页面背景颜色
       textTheme: TextTheme(
           body1: TextStyle(fontSize: bodyFontSize),
