@@ -1,5 +1,8 @@
 import 'package:favorcate/core/model/MealModel.dart';
+
 import 'package:flutter/material.dart';
+
+import 'detail_content.dart';
 class HYDetailScreen extends StatelessWidget {
   static const String routeName="/detail";
   @override
@@ -7,8 +10,9 @@ class HYDetailScreen extends StatelessWidget {
     final meal =ModalRoute.of(context).settings.arguments as MealModel;
     return Scaffold(
       appBar: AppBar(
-        title: Text("todo"),
+        title: Text(meal.title),
       ),
+      body: HYDetailContent(meal)  ,
     );
   }
 }

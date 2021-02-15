@@ -1,6 +1,7 @@
 import 'package:favorcate/core/model/MealModel.dart';
 import 'package:favorcate/core/service/meal_request.dart';
 import 'package:favorcate/core/utils/log.dart';
+
 import 'package:flutter/material.dart';
 
 class MealViewModel extends ChangeNotifier {

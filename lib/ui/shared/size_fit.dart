@@ -1,5 +1,5 @@
+//这里封装了屏幕适配方法
 import 'dart:ui';
-
 class HYSizeFit {
   // 1.基本信息
   static double physicalWidth;
