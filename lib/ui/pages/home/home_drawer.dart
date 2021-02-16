@@ -13,7 +13,7 @@ class HomeDrawer extends StatelessWidget {
         child: Column(
           children: <Widget>[
             buildHeaderView(context),
-            buildListTile(context, Icon(Icons.settings), "设置过滤", () {
+            buildListTile(context, Icon(Icons.settings), "设置过滤条件", () {
 //              myLog('点击了过滤', StackTrace.current);
               Navigator.of(context).pop();//关闭Drawer
             Navigator.of(context).pushNamed(FilterScreen.routeName);

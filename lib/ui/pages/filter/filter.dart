@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'filter_content.dart';
 class FilterScreen extends StatelessWidget {
   static const String routeName="/filter";
   @override
@@ -7,7 +9,7 @@ class FilterScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("过滤条件"),
       ),
-      body: Text("todo"),
+      body: FilterContent(),
     );
   }
 }
