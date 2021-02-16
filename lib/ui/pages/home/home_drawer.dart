@@ -13,13 +13,14 @@ class HomeDrawer extends StatelessWidget {
         child: Column(
           children: <Widget>[
             buildHeaderView(context),
-            buildListTile(context, Icon(Icons.restaurant), "进餐", () {
-              myLog('点击了进餐', StackTrace.current);
-            }),
-            buildListTile(context, Icon(Icons.settings), "过滤", () {
+            buildListTile(context, Icon(Icons.settings), "设置过滤", () {
 //              myLog('点击了过滤', StackTrace.current);
-              Navigator.pop(context);//关闭Drawer
+              Navigator.of(context).pop();//关闭Drawer
             Navigator.of(context).pushNamed(FilterScreen.routeName);
+            }),
+            buildListTile(context, Icon(Icons.close), "关闭侧边菜单", () {
+              Navigator.of(context).pop();//关闭Drawer
+//              myLog('点击了进餐', StackTrace.current);
             }),
           ],
         ),
