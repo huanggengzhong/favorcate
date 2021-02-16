@@ -21,4 +21,12 @@ void removeMeal(MealModel meal){
 bool isFavor(MealModel meal){
     return _favorMeals.contains(meal);
 }
+//多个地方用到,通用切换方法
+void handleMeal(MealModel meal){
+    if(isFavor(meal)){
+      removeMeal(meal);
+    }else{
+      addMeal(meal);
+    }
+}
 }
