@@ -28,6 +28,7 @@ class HYDetailContent extends StatelessWidget {
 //  组件封装1.横幅图片
   Widget buildBannerImage() {
     return Container(
+      width: double.infinity,//解决开始宽度不一致问题
       child: Image.network(_meal.imageUrl),
     );
   }
@@ -68,7 +69,7 @@ class HYDetailContent extends StatelessWidget {
             itemBuilder: (ctx, index) {
               return ListTile(
                 leading: CircleAvatar(
-                  child: Text("#${index + 1}"),
+                  child: Text("${index + 1}"),
                 ),
                 title: Text(_meal.steps[index]),
               );
