@@ -1,3 +1,5 @@
+//自定义打印信息
+
 void myLog(Object message, StackTrace current) {
   CustomTrace programInfo = CustomTrace(current);
   print("所在文件: ${programInfo.fileName}, 所在行: ${programInfo.lineNumber}, 打印信息: $message");
