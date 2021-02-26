@@ -24,19 +24,7 @@ void main() {
           ChangeNotifierProvider(
             create: (ctx) => FavorViewModel(),
           ),
-
-          //没有依赖的写法
-//        ChangeNotifierProvider(
-//          create: (ctx)=>FilterViewModel(),
-//        ),
-//        ChangeNotifierProvider(
-//          create: (ctx)=>MealViewModel(),
-//        ),
-//        ChangeNotifierProvider(
-//          create: (ctx)=>FavorViewModel(),
-//        ),
-
-        ],
+                  ],
         child: MyApp(),
       )
   );
